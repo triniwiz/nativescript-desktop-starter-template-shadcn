@@ -70,3 +70,14 @@ fs.writeFileSync(
 );
 console.log(`registry.json: ${items.length} items`);
 execSync('npx -y shadcn@latest build', { stdio: 'inherit' });
+
+// shadcn copies each file's content as checked out; on Windows (autocrlf)
+// that's CRLF. Normalize to LF so the output is the same on every machine.
+const OUT = 'public/r';
+for (const file of fs.readdirSync(OUT)) {
+  if (!file.endsWith('.json')) continue;
+  const target = path.join(OUT, file);
+  const text = fs.readFileSync(target, 'utf8');
+  const normalized = text.replaceAll('\\r\\n', '\\n').replaceAll('\r\n', '\n');
+  if (normalized !== text) fs.writeFileSync(target, normalized);
+}
