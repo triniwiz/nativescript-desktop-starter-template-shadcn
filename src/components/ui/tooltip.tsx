@@ -53,7 +53,8 @@ function TooltipBubble({ className, children, ...props }: React.ComponentProps<'
       onLayoutChanged={onPanelLayout}
       {...props}
     >
-      <span className="text-xs text-primary-foreground">{children}</span>
+      {/* The floating layer is zero-size, so a shrink-to-fit bubble would wrap every word. */}
+      <span className="text-xs whitespace-nowrap text-primary-foreground">{children}</span>
     </div>
   );
 }
