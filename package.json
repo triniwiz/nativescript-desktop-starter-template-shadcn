@@ -5,8 +5,8 @@
   "private": true,
   "dependencies": {
     "@nativescript-community/react": "^19.0.0",
-    "@nativescript/canvas": "3.0.0-beta.5",
-    "@nativescript/canvas-svg": "3.0.0-beta.5",
+    "@nativescript/canvas": "3.0.0",
+    "@nativescript/canvas-svg": "3.0.0",
     "@nativescript/core": "https://pkg.pr.new/@nativescript/core@697a377",
     "@triniwiz/nativescript-masonkit": "^1.0.0-beta.129",
     "@valor/nativescript-websockets": "^2.0.2",
@@ -33,8 +33,8 @@
   },
   "overrides": {
     "@nativescript/core": "https://pkg.pr.new/@nativescript/core@697a377",
-    "@nativescript/canvas": "3.0.0-beta.5",
-    "@nativescript/canvas-svg": "3.0.0-beta.5"
+    "@nativescript/canvas": "3.0.0",
+    "@nativescript/canvas-svg": "3.0.0"
   },
   "scripts": {
     "windows": "ns run windows --no-hmr",
