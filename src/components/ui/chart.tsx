@@ -168,11 +168,12 @@ function PlotFrame({ plot, markup }: { plot: Plot; markup: string }) {
           ))}
         </div>
         {/* touch-pan-y: vertical drags still scroll the page; horizontal ones pick a category.
-            Hovering moves report as touch moves too, so the pointer leaving clears the pick. */}
+            With a mouse, hovering picks too (mouseMove), and the pointer leaving clears the pick. */}
         <div
           className="relative touch-pan-y"
           style={{ width: plotWidth, height: plotHeight }}
           onTouch={onTouch}
+          onMouseMove={onTouch}
           onMouseLeave={() => setActive(null)}
         >
           <svg src={svg} style={{ width: plotWidth, height: plotHeight }} />

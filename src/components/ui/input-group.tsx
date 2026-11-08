@@ -19,7 +19,9 @@ function InputGroup({ className, ...props }: React.ComponentProps<'div'>) {
 function InputGroupInput({ className, ...props }: React.ComponentProps<typeof Input>) {
   return (
     <Input
-      className={cn('h-full flex-1 rounded-none border-0 bg-transparent dark:bg-transparent', className)}
+      // As in shadcn: text-sm like the addons, with 8px of padding beside them (shadcn sets the
+      // padding with has-[] selectors, which aren't available here)
+      className={cn('h-full flex-1 rounded-none border-0 bg-transparent px-2 text-sm dark:bg-transparent', className)}
       {...props}
     />
   );
