@@ -264,8 +264,8 @@ These can be removed once the fixes are released:
 
 - `@nativescript/core` and `@nativescript/vite` are installed from a pkg.pr.new
   build (`3456c82`) of the `feat/linux` branch of [NativeScript/NativeScript](https://github.com/NativeScript/NativeScript).
-- `@nativescript/windows` is pinned to an exact alpha, because a caret range
-  would also match older, incompatible betas.
+- `@nativescript/windows` is pinned to an exact beta, because a caret range
+  would pick up newer betas before they're tested with this template.
 - `@nativescript/linux` is pinned to an exact alpha.
 - `react-workarounds.mjs` swaps the React renderer's `src/dom.js` for
   `src/react-dom.ts`. The original copies every DOMiNATIVE class onto
