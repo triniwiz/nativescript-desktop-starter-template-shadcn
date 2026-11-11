@@ -59,7 +59,6 @@ declares support for Linux, so a plain `npm install` stops with `EBADPLATFORM`.
 | `src/dom.ts` | Loads React's DOM and registers MasonKit's elements. |
 | `src/app.css` | Tailwind, the shadcn theme, and the `dark:`, `ios:`, `android:`, `windows:`, `linux:`, `phone:` and `tablet:` variants. |
 | `src/components/ui/` | The shadcn components. |
-| `canvas-workarounds.mjs` | Resolves `@nativescript/canvas`'s `./platform` import under Vite. |
 | `src/components/AppShell.tsx` | The app's frame: sidebar, header and the current page. |
 | `src/pages/` | Dashboard, Components (every component), Settings and Login. |
 | `src/lib/utils.ts` | `cn()`, which merges class names with `clsx` and `tailwind-merge`. |
@@ -264,7 +263,7 @@ const { appearance, toggle, setAppearance } = useTheme();
 These can be removed once the fixes are released:
 
 - `@nativescript/core` and `@nativescript/vite` are installed from a pkg.pr.new
-  build (`9f94e72`) of the `feat/linux` branch of [NativeScript/NativeScript](https://github.com/NativeScript/NativeScript).
+  build (`3456c82`) of the `feat/linux` branch of [NativeScript/NativeScript](https://github.com/NativeScript/NativeScript).
 - `@nativescript/windows` is pinned to an exact alpha, because a caret range
   would also match older, incompatible betas.
 - `@nativescript/linux` is pinned to an exact alpha.
@@ -274,14 +273,5 @@ These can be removed once the fixes are released:
   keeps one native listener per event while handlers change: the renderer
   re-binds them on every render, and on iOS that detaches the `touch`
   recognizer mid-drag (sliders and charts only got `down`).
-- `android-workarounds.mjs` names core's Android activity chunk without a
-  hash. The generated Java activity loads it by the name it had at the last
-  native build, so after a rebuild that renamed it, Android started the old
-  chunk and crashed ("isEmbedded is not a function").
 - `postcss-masonkit.mjs` keeps `touch-action` and `:hover` rules, which `@nativescript/tailwind`
   strips even though MasonKit supports them.
-- `masonkit-hmr.mjs` stops MasonKit from loading twice during HMR. It only
-  runs on the dev server, so it does nothing until HMR is back on.
-- `postcss-selector-commas.mjs` makes classes with a comma, like
-  `grid-cols-[repeat(auto-fill,minmax(240,1fr))]`, match
-  ([NativeScript/NativeScript#11463](https://github.com/NativeScript/NativeScript/pull/11463)).
